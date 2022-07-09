@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<br><br><br>
+
+<!-- End Breadcrumbs -->
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog" >
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-9 entries">
+
+            <article class="entry">
+                <ul  data-aos="fade-up">
+                    <div>
+                        <b style="color:green;">
+                            <p>In this Template we will be discussing Disease Condition on weekly bases </p>
+                            <p>This is aim to help individual has basic knowledge of Diseases and how to prevent it</p>
+                        </b>
+                        <center>
+                            <b><p style="color:red;">Thanks and Stay Blessed and Healthy</p></b>
+                        </center>
+                    </div>
+                    <div class="hot">
+                        {% for x in dis %}
+                          <div class="col-md-12 icon-box" data-aos="fade-up" data-aos-delay="400">
+                            <h4 style="color:gold">{{x.name}}</h4>
+                            <p style="color:#fff; font-size:13px"><b>{{ x.body|slice:":180"|safe }}....</b></p>
+                            <a class="get-started-btn" href="{% url 'b:him' x.pk %}"> Read More </a>
+                          </div>
+                        {% endfor %}
+                    </div>
+
+
+                </ul>
+            </article>
+          </div>
+
+          {% include 'b/side.html' %}
+        </div>
+
+
+      </div>
+    </section>
+</div>
+
+{% endblock content %}
